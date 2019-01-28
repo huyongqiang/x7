@@ -29,10 +29,7 @@ public class XxxController {
 	@Autowired
 	private CatRepository catRepository;// sample
 
-//	@Resource(name = "redisTemplate")
-//	private RedisTemplate template;
-//	@Resource(name = "stringRedisTemplate")
-//	private StringRedisTemplate stringRedisTemplate;
+
 
 	@RequestMapping("/create")
 //	@Transactional
@@ -66,19 +63,6 @@ public class XxxController {
 	@RequestMapping("/refresh")
 	public ViewEntity refreshByCondition(@RequestBody Cat cat){
 
-
-		StringRedisTemplate stringRedisTemplate = (StringRedisTemplate) SpringHelper.getObject("stringRedisTemplate");
-//		stringRedisTemplate.opsForValue().set("xxx.test","ddddd");
-//		String test = stringRedisTemplate.opsForValue().get("xxx.test");
-
-//		System.out.println("_________: " + test);
-
-		RedisTemplate template = (RedisTemplate) SpringHelper.getObject("redisTemplate");
-		template.opsForValue().set("xxx.test".getBytes(),"ddddddddd".getBytes());
-		Object obytes = template.opsForValue().get("xxx.test".getBytes());
-		byte[] bytes = (byte[]) obytes;
-
-		System.out.println("__________: " + new String(bytes) );
 
 //		System.out.println("______: "  + test);
 //		CriteriaBuilder builder = CriteriaBuilder.buildCondition();
